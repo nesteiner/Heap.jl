@@ -1,0 +1,33 @@
+#+title: Heap in Julia
+* Heap
+** Create
+#+begin_src julia
+  heap = BinaryHeap(Int)
+#+end_src
+** Operation
+*** push
+#+begin_src julia
+  for i in 1:10
+    push!(heap, i)
+  end
+#+end_src
+*** extract
+#+begin_src julia
+  while !isempty(heap)
+    value = extract!(heap)
+    println(value)
+  end
+#+end_src
+*** topn
+#+begin_src julia
+  topn(heap, 5) # ok
+  topn(heap, 11) # assert error
+#+end_src
+*** size
+#+begin_src julia
+  size(heap) == 10 # true
+#+end_src
+*** isempty
+#+begin_src julia
+  isempty(heap) == false # true
+#+end_src
