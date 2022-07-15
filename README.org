@@ -31,3 +31,11 @@
 #+begin_src julia
   isempty(heap) == false # true
 #+end_src
+*** first
+#+begin_src julia
+  first(heap)
+#+end_src
+*** contains
+#+begin_src julia
+  contains(heap, value)
+#+end_src

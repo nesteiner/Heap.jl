@@ -1,6 +1,6 @@
 module Heap
 
-import Base: push!, size, isempty
+import Base: push!, size, isempty, first, contains
 
 mutable struct BinaryHeap{T}
   size::Int
@@ -85,6 +85,16 @@ function topn(heap::BinaryHeap, n::Int)
   @assert n <= heap.size "n cannot be larger than heap size"
 
   return heap.treeArray[1:n]
+end
+
+first(heap::BinaryHeap) = begin
+  @assert !isempty(heap) "cannot fetch data from an empty heap"
+
+  return first(heap.tempArray)
+end
+
+contains(heap::BinaryHeap{T}, data::T) where T = begin
+  in(data, heap.tempArray)
 end
 
 export BinaryHeap
